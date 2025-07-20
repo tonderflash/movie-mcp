@@ -1,252 +1,252 @@
-# 🎬 Servidor MCP de Búsqueda de Películas
+# 🎬 Movie Search MCP Server
 
-Un servidor MCP (Model Context Protocol) completo para buscar y obtener información detallada de películas usando las APIs de OMDb (IMDB) y TMDb.
+A complete MCP (Model Context Protocol) server for searching and obtaining detailed movie information using OMDb (IMDB) and TMDb APIs.
 
-## 🚀 Características
+## 🚀 Features
 
-- ✅ Búsqueda de películas por título y año
-- ✅ Información detallada de películas (sinopsis, director, actores, etc.)
-- ✅ Recomendaciones por género
-- ✅ Películas populares/trending
-- ✅ Soporte para múltiples APIs (OMDb + TMDb)
-- ✅ Respuestas en español
-- ✅ Manejo de errores robusto
+- ✅ Search movies by title and year
+- ✅ Detailed movie information (synopsis, director, actors, etc.)
+- ✅ Genre-based recommendations
+- ✅ Popular/trending movies
+- ✅ Support for multiple APIs (OMDb + TMDb)
+- ✅ English responses
+- ✅ Robust error handling
 
-## 📋 Requisitos
+## 📋 Requirements
 
 - Node.js 18+
 - TypeScript
-- Claves de API (ver configuración)
+- API keys (see configuration)
 
-## 🛠️ Instalación
+## 🛠️ Installation
 
-1. **Clona o crea el proyecto:**
+1. **Clone or create the project:**
 
 ```bash
-git clone <repo> # o crea una carpeta nueva
+git clone <repo> # or create a new folder
 cd movie-mcp
 ```
 
-2. **Instala las dependencias:**
+2. **Install dependencies:**
 
 ```bash
 npm install
 ```
 
-3. **Compila el proyecto:**
+3. **Build the project:**
 
 ```bash
 npm run build
 ```
 
-## 🔐 Configuración de APIs
+## 🔐 API Configuration
 
-### OMDb API (Gratuita)
+### OMDb API (Free)
 
-1. Ve a: https://www.omdbapi.com/apikey.aspx
-2. Regístrate para obtener tu API key gratuita
-3. Agrega la variable de entorno: `OMDB_API_KEY=tu_api_key`
+1. Go to: https://www.omdbapi.com/apikey.aspx
+2. Register to get your free API key
+3. Add the environment variable: `OMDB_API_KEY=your_api_key`
 
-### TMDb API (Gratuita)
+### TMDb API (Free)
 
-1. Ve a: https://www.themoviedb.org/settings/api
-2. Regístrate y solicita una API key
-3. Agrega la variable de entorno: `TMDB_API_KEY=tu_api_key`
+1. Go to: https://www.themoviedb.org/settings/api
+2. Register and request an API key
+3. Add the environment variable: `TMDB_API_KEY=your_api_key`
 
-### Variables de entorno
+### Environment Variables
 
-Crea un archivo `.env` en la raíz del proyecto:
+Create a `.env` file in the project root:
 
 ```bash
-OMDB_API_KEY=tu_omdb_api_key
-TMDB_API_KEY=tu_tmdb_api_key
+OMDB_API_KEY=your_omdb_api_key
+TMDB_API_KEY=your_tmdb_api_key
 ```
 
-## 🎯 Herramientas Disponibles
+## 🎯 Available Tools
 
-### 1. `buscar_peliculas`
+### 1. `search_movies`
 
-Busca películas por título y opcionalmente por año.
+Search movies by title and optionally by year.
 
-**Parámetros:**
+**Parameters:**
 
-- `titulo` (string, requerido): Título de la película
-- `año` (string, opcional): Año de la película
+- `title` (string, required): Movie title
+- `year` (string, optional): Movie year
 
-**Ejemplo:**
-
-```
-Busca películas con título "Batman" del año "2008"
-```
-
-### 2. `obtener_detalles_pelicula`
-
-Obtiene información completa de una película específica.
-
-**Parámetros:**
-
-- `id` (string, requerido): ID de la película (IMDB ID o TMDb ID)
-- `fuente` (string, opcional): 'omdb' o 'tmdb' (por defecto: 'omdb')
-
-**Ejemplo:**
+**Example:**
 
 ```
-Obtén detalles de la película con ID "tt0468569" usando fuente "omdb"
+Search movies with title "Batman" from year "2008"
 ```
 
-### 3. `recomendar_peliculas`
+### 2. `get_movie_details`
 
-Obtiene recomendaciones de películas por género.
+Get complete information for a specific movie.
 
-**Parámetros:**
+**Parameters:**
 
-- `genero` (string, opcional): Género específico
+- `id` (string, required): Movie ID (IMDB ID or TMDb ID)
+- `source` (string, optional): 'omdb' or 'tmdb' (default: 'omdb')
 
-**Géneros disponibles:**
-
-- accion, aventura, animacion, comedia, crimen
-- documental, drama, familia, fantasia, historia
-- terror, musica, misterio, romance, ciencia ficcion
-- suspense, guerra, western
-
-**Ejemplo:**
+**Example:**
 
 ```
-Recomiéndame películas de "accion"
+Get details for movie with ID "tt0468569" using source "omdb"
 ```
 
-### 4. `peliculas_populares`
+### 3. `recommend_movies`
 
-Obtiene las películas más populares de la semana.
+Get movie recommendations by genre.
 
-**Parámetros:** Ninguno
+**Parameters:**
 
-**Ejemplo:**
+- `genre` (string, optional): Specific genre
+
+**Available genres:**
+
+- action, adventure, animation, comedy, crime
+- documentary, drama, family, fantasy, history
+- horror, music, mystery, romance, science fiction
+- thriller, war, western
+
+**Example:**
 
 ```
-¿Cuáles son las películas populares?
+Recommend me "action" movies
 ```
 
-### 5. `ayuda_peliculas`
+### 4. `popular_movies`
 
-Muestra información de ayuda sobre todas las herramientas disponibles.
+Get the most popular movies of the week.
 
-## 🔧 Configuración en Cursor
+**Parameters:** None
 
-Para usar este servidor MCP en Cursor, agrega la siguiente configuración a tu archivo `.cursor/mcp.json`:
+**Example:**
+
+```
+What are the popular movies?
+```
+
+### 5. `movie_help`
+
+Show help information about all available tools.
+
+## 🔧 Cursor Configuration
+
+To use this MCP server in Cursor, add the following configuration to your `.cursor/mcp.json` file:
 
 ```json
 {
   "mcpServers": {
     "movie-search": {
       "command": "node",
-      "args": ["/ruta/completa/a/tu/proyecto/dist/index.js"],
+      "args": ["/full/path/to/your/project/dist/index.js"],
       "env": {
-        "OMDB_API_KEY": "tu_omdb_api_key",
-        "TMDB_API_KEY": "tu_tmdb_api_key"
+        "OMDB_API_KEY": "your_omdb_api_key",
+        "TMDB_API_KEY": "your_tmdb_api_key"
       }
     }
   }
 }
 ```
 
-## 🎮 Uso en Cursor
+## 🎮 Usage in Cursor
 
-Una vez configurado, puedes usar las herramientas directamente en Cursor:
+Once configured, you can use the tools directly in Cursor:
 
 ```
-// Buscar películas
-"Busca películas de Batman del 2008"
+// Search movies
+"Search movies of Batman from 2008"
 
-// Obtener detalles
-"Dame detalles de la película tt0468569"
+// Get details
+"Give me details of movie tt0468569"
 
-// Recomendaciones
-"Recomiéndame películas de acción"
+// Recommendations
+"Recommend me action movies"
 
-// Películas populares
-"¿Cuáles son las películas populares esta semana?"
+// Popular movies
+"What are the popular movies this week?"
 
-// Ayuda
-"Muéstrame la ayuda del servidor de películas"
+// Help
+"Show me the movie server help"
 ```
 
-## 🧪 Pruebas
+## 🧪 Testing
 
-Para probar el servidor localmente:
+To test the server locally:
 
 ```bash
-# Compilar
+# Build
 npm run build
 
-# Ejecutar el servidor
+# Run the server
 npm start
 
-# O en modo desarrollo
+# Or in development mode
 npm run dev
 ```
 
-## 📝 Scripts Disponibles
+## 📝 Available Scripts
 
-- `npm run build`: Compila el TypeScript a JavaScript
-- `npm run dev`: Compila en modo watch
-- `npm start`: Ejecuta el servidor compilado
-- `npm test`: Ejecuta el servidor (alias de start)
+- `npm run build`: Compile TypeScript to JavaScript
+- `npm run dev`: Build in watch mode
+- `npm start`: Run the compiled server
+- `npm test`: Run the server (start alias)
 
-## 🔍 Estructura del Proyecto
+## 🔍 Project Structure
 
 ```
 movie-mcp/
 ├── src/
-│   ├── index.ts          # Servidor MCP principal
-│   ├── movie-apis.ts     # Funciones de APIs
-│   └── types.ts          # Tipos TypeScript
-├── dist/                 # JavaScript compilado
+│   ├── index.ts          # Main MCP server
+│   ├── movie-apis.ts     # API functions
+│   └── types.ts          # TypeScript types
+├── dist/                 # Compiled JavaScript
 ├── package.json
 ├── tsconfig.json
 └── README.md
 ```
 
-## 🌟 Características Técnicas
+## 🌟 Technical Features
 
-- **Protocolo MCP**: Implementa el estándar Model Context Protocol
-- **APIs múltiples**: Combina OMDb y TMDb para mejores resultados
-- **Validación**: Usa Zod para validación de parámetros
-- **TypeScript**: Código completamente tipado
-- **Manejo de errores**: Respuestas informativas en caso de error
-- **Internacionalización**: Respuestas en español
+- **MCP Protocol**: Implements the Model Context Protocol standard
+- **Multiple APIs**: Combines OMDb and TMDb for better results
+- **Validation**: Uses Zod for parameter validation
+- **TypeScript**: Fully typed code
+- **Error handling**: Informative responses in case of error
+- **Internationalization**: English responses
 
-## 🤝 Contribuir
+## 🤝 Contributing
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -am 'Agrega nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a Pull Request
 
-## 📄 Licencia
+## 📄 License
 
-MIT License - ver el archivo LICENSE para más detalles.
+MIT License - see the LICENSE file for more details.
 
-## 🆘 Solución de Problemas
+## 🆘 Troubleshooting
 
 ### Error: "Module not found"
 
-- Asegúrate de ejecutar `npm install`
-- Verifica que Node.js esté instalado (versión 18+)
+- Make sure to run `npm install`
+- Verify that Node.js is installed (version 18+)
 
 ### Error: "API key invalid"
 
-- Verifica que las variables de entorno estén configuradas correctamente
-- Confirma que las API keys sean válidas
+- Verify that environment variables are configured correctly
+- Confirm that API keys are valid
 
 ### Error: "No results found"
 
-- Verifica tu conexión a internet
-- Confirma que los nombres de películas estén escritos correctamente
+- Check your internet connection
+- Confirm that movie names are spelled correctly
 
-### El servidor no responde
+### Server not responding
 
-- Verifica que el archivo esté compilado (`npm run build`)
-- Revisa la configuración en `.cursor/mcp.json`
-- Confirma que la ruta al archivo sea correcta
+- Verify that the file is compiled (`npm run build`)
+- Check the configuration in `.cursor/mcp.json`
+- Confirm that the path to the file is correct
