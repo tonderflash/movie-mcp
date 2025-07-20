@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "movie-search": {
+      "command": "node",
+      "args": ["/Users/tonderflash/Developer/movie-mcp/dist/index.js"],
+      "env": {
+        "OMDB_API_KEY": "tu_omdb_api_key_aqui",
+        "TMDB_API_KEY": "tu_tmdb_api_key_aqui"
+      }
+    }
+  }
+}
