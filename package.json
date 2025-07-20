@@ -1,24 +1,52 @@
 {
   "name": "movie-mcp-server",
   "version": "1.0.0",
-  "description": "Servidor MCP para búsquedas de películas usando OMDb y TMDb APIs",
+  "description": "MCP server for movie searches using OMDb and TMDb APIs. Search movies, get details, recommendations, and trending films for Claude Desktop.",
   "type": "module",
   "main": "dist/index.js",
+  "bin": {
+    "movie-mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "start": "node dist/index.js",
-    "test": "node dist/index.js"
+    "test": "node test-apis.js",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "mcp",
+    "model-context-protocol",
     "movies",
     "imdb",
     "omdb",
-    "tmdb"
+    "tmdb",
+    "claude",
+    "ai-tools",
+    "movie-search",
+    "movie-database",
+    "film-search",
+    "cinema",
+    "entertainment"
   ],
-  "author": "Movie MCP Server",
+  "author": "Israel Garcia <igarcia76k@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/tonderflash/movie-mcp-server#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonderflash/movie-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tonderflash/movie-mcp-server/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
     "node-fetch": "^3.3.2",
