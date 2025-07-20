@@ -1,6 +1,6 @@
 {
   "name": "movie-mcp-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for movie searches using OMDb and TMDb APIs. Search movies, get details, recommendations, and trending films for Claude Desktop.",
   "type": "module",
   "main": "dist/index.js",
