@@ -2,6 +2,10 @@
 
 A complete MCP (Model Context Protocol) server for searching and obtaining detailed movie information using OMDb (IMDB) and TMDb APIs.
 
+<a href="https://glama.ai/mcp/servers/@tonderflash/movie-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@tonderflash/movie-mcp/badge" alt="Movie Search Server MCP server" />
+</a>
+
 ## 🚀 Features
 
 - ✅ Search movies by title and year
